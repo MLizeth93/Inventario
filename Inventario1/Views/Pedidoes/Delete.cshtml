@@ -1,0 +1,65 @@
+﻿@model Inventario1.Models.Pedido
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Estas seguro que deseas eliminar?</h3>
+<div>
+    <h4>Nuevo Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedor.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedor.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_pedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_pedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_envio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_envio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado_pedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado_pedido)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Eliminar" class="btn btn-default" /> 
+        @Html.ActionLink("Regresar al listado", "Index", null, new { @Class = "btn btn-primary" })
+    </div>
+    }
+</div>

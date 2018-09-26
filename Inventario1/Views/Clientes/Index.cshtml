@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Inventario1.Models.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create", null, new { @Class = "btn btn-primary" })
+   
+</p>
+<table class="table table-bordered table-hover table-striped">
+    <tr style="background-color: darkslategray   ;color:white;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id_cliente }, new { @class = "btn btn-warning block" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.id_cliente }, new { @class = "btn btn-info block" })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id_cliente }, new { @class = "btn btn-danger block " })
+        </tr>
+    }
+
+</table>
